@@ -1,0 +1,93 @@
+# CONSISTENT CODING FORMAT METHODS FOR SUPPORTED EDITING SOFTWARE.  REFERENCE: www.editorconfig.org
+root = true
+
+# STANDARDIZE FORMATS FOR ALL FILES
+[*]
+indent_style = tab
+indent_size = 2
+charset = utf-8
+
+# VISUAL STUDIO - SOLUTION FILES
+[*.sln]
+indent_style = tab
+
+# VISUAL STUDIO - PROJECT FILES
+[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
+indent_size = 2
+
+# WEB FILES
+[*.{htm,cfm,cfml,php,css,asp,svg}]
+indent_style = tab
+indent_size = 2
+
+# WEB FILES
+[*.html]
+indent_style = tab
+indent_size = 4
+
+# MARKUP LANGUAGES - SPECIFIC
+[*.{xml,rdl,config,props,targets,ruleset,manifest}]
+indent_style = unset
+indent_size = 2
+
+# PREPROCESSOR LANGUAGES
+[*.{less,scss,sass}]
+indent_style = tab
+indent_size = 4
+
+# QUERY STRUCTURED LANGUAGES
+[*.sql]
+indent_style = tab
+indent_size = 4
+indent_brace_style = 1TBS
+trim_trailing_whitespace = true
+spaces_around_operators = true
+
+# PREPROCESSOR LANGUAGES - HTML SPECIFIC
+[*.{jade,pug,haml}]
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+# MARKDOWN LANGUAGE - SPECIFIC
+[*.md]
+trim_trailing_whitespace = false
+
+# JAVASCRIPT LANGUAGE - SPECIFIC
+[*.js]
+indent_style = tab
+indent_size = 4
+indent_brace_style = 1TBS
+spaces_around_brackets = outside
+curly_bracket_next_line = true
+
+# PYTHON LANGUAGE - SPECIFIC
+[*.py]
+indent_style = space
+indent_size = 4
+
+# MAKEFILE LANGUAGE - SPECIFIC
+[Makefile]
+indent_style = tab
+
+#####################################
+
+# THE FOLLOWING LANGUAGE FILE TYPES
+# SHOULD NOT BE MODIFIED UNDER ANY
+# CIRCUMSTANCES. DOING SO WILL BREAK BUILD
+
+#####################################
+
+# WINDOWS BATCH FILES - CRLF REQUIRED
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# BASH LANGUAGE FILES - LF REQUIRED
+[*.sh]
+end_of_line = lf
+
+# YAML / JSON LANGUAGE - SPECIFIC
+[*.{yml,yaml,json,json5}]
+indent_style = space
+indent_size = 2

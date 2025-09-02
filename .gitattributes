@@ -1,0 +1,116 @@
+# SET DEFAULT BEHAVIOR FOR FILE TYPES -- INSTRUCTS GIT ON HOW TO HANDLE FILE TYPES FOR CHANGE DETECTION AND
+# NORMALIZATION TECHNIQUES. FIRST BASELINE ALL FILES AND TREAT THEM AS TEXT.  ANY FILES THAT ARE NOT TEXT OR CANNOT
+# CONVERTED INTO TEXT ARE UNFLAGGED AS TEXT.
+
+# DIFF FLAG INDICATES CONVERSION SPECIFIC COMPARISONS BASED ON LANGUAGE, HOW TO TREAT FILES SUCH AS PLAIN TEXT, AND
+# TO USE EXTERNAL SOFTWARE FOR THE COMPARISON SUCH AS 'EXTDIFF' WHICH REFERS TO P4MERGE SOFTWARE (HAS IMAGE COMPARISON ALGORITHMS)
+
+# NORMALIZE ALL TEXT FILES - FORCE ALL LINE ENDINGS TO UNIX BASED LF
+*	text=auto		eol=lf
+
+# WINDOWS BATCH FILES REQUIRE ALL LINE ENDINGS TO BE CRLF
+*.{cmd,[cC][mM][dD]}	text	eol=crlf
+*.{bat,[bB][aA][tT]}	text	eol=crlf
+
+# TEXT FILES
+*.txt       text
+*.ini       text
+*.inc       text
+*.csv       text
+*.tab       text
+*.tsv       text
+
+# DOCUMENTS
+*.doc	            diff=astextplain
+*.DOC	            diff=astextplain
+*.docx              diff=astextplain
+*.DOCX              diff=astextplain
+*.dot               diff=astextplain
+*.DOT               diff=astextplain
+*.pdf       -text   diff=extDiff
+*.PDF       -text   diff=extDiff
+*.rtf       text    diff=astextplain
+*.RTF       text    diff=astextplain
+*.md        text    diff=astextplain
+
+#CODE
+*.cs        text    diff=csharp
+*.py        text    diff=python
+*.java      text    diff=java
+*.rb        text    diff=ruby
+
+# WEB DOCUMENTS
+*.php       text    diff=php
+*.css       text    diff=css
+*.scss      text    diff=css
+*.scss      text    diff=css
+*.less      text    diff=css
+*.js        text
+*.htm       text    diff=html
+*.html      text    diff=html
+*.rdl       text    diff=html
+*.cfm       text
+*.cfml      text
+*.haml      text
+*.jade      text
+*.pug       text
+*.svg       text
+
+# CONFIGURATION
+*.config    text
+.htaccess   text
+
+# SERIALIZATION
+*.json      -text
+*.toml      -text
+*.xml       -text
+*.yaml      -text
+*.yml       -text
+
+# SCRIPTS
+*.sql       text
+*.bash      text
+*.sh        text	eol=lf
+*.vcproj	text 	eol=crlf
+
+# SCRIPTS - WINDOWS
+*.bat       text
+*.cmd       text
+*.ps1       text
+
+# ARCHIVES
+*.7z        binary
+*.gz        binary
+*.tar       binary
+*.rar       binary
+*.jar       binary
+*.zip       binary
+*.br        binary
+
+# GRAPHIC
+*.mov       -text	binary
+*.mp4       -text	binary
+*.mp3       -text	binary
+*.mpeg      -text	binary
+*.flv       -text	binary
+*.fla       -text	binary
+*.swf       -text	binary
+*.png       -text	diff=extDiff
+*.jpg       -text	diff=extDiff
+*.jpeg      -text	diff=extDiff
+*.gif       -text	diff=extDiff
+*.ico       -text	diff=extDiff
+*.tif       -text	diff=extDiff
+*.tiff      -text	diff=extDiff
+*.ttf       -text	diff=extDiff
+*.psd       -text	diff=extDiff
+*.ai        -text	diff=extDiff
+*.eps       -text	diff=extDiff
+*.webp      -text	diff=extDiff
+
+# FONTS
+*.woff2     binary
+
+# BINARY FILES
+*.xls       binary
+*.xlsx      binary

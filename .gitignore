@@ -1,0 +1,270 @@
+# USE THIS FILE TO SET MARK FILES TO BE IGNORED BY SOURCE CONTROL AT THE
+# APPLICATION OR PROJECT LEVEL
+
+# OPTIONALLY CREATE A .gitignore_global  FILE TO MARK FILES TO BE
+# IGNORED BY SOURCE CONTROL FORALL GIT PROJECTS AND REPOSITORIES.
+# SAVE THIS FILE IN THEROOT DIRECTORY WHERE GIT WAS INITIALLY INSTALLED
+# THIS IS USUALLY THE USER ACCOUNT $HOME DIRECTORY
+
+# DEVELOPMENT ASSETS
+**/_dev
+**/_devassets
+**/_dev_assets
+**/_assets
+
+# VISUAL STUDIO AUTO-GENERATED
+**/.vs
+Generated\ Files/
+.localhistory/
+
+# VISUAL STUDIO FILES
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# VISUAL STUDIO - TRACE FILES
+*.e2e
+
+# VISUAL STUDIO - PROFILER
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# VISUAL STUDIO - USER SPECIFIC
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.vbw
+*.opt
+*.plg
+
+# VISUAL C++ - COMPILER FILES
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# VISUAL STUDIO CODE
+*.code-workspace
+.history
+**/.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# VISUAL STUDIO - BUILD RESULTS
+[Dd]ebug/
+[Dd]ebugPublic/
+# [Rr]elease/		INSERT THIS BACK IN AS NEEDED (SHOULD NOT BE AT THE ROOT LEVEL)
+# [Rr]eleases/		INSERT THIS BACK IN AS NEEDED (SHOULD NOT BE AT THE ROOT LEVEL)
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+# [Ll]og/			INSERT THIS BACK IN AS NEEDED (SHOULD NOT BE AT THE ROOT LEVEL)
+
+# BUSINESS INTELLIGENCE FILES
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+*.rptproj.rsuser
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+
+# SQL SERVER FILES
+*.mdf
+*.ldf
+*.ndf
+
+# MICROSOFT AZURE
+ecf/
+rcf/
+csx/
+*.build.csdef
+
+# MICROSOFT AZURE - WEB PUBLISHING
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+PublishScripts/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ServiceFabricBackup/
+*.rptproj.bak
+_UpgradeReport_Files/
+
+# MACOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+._*
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon?
+Icon*
+!icons
+
+# WINDOWS
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+*.appx
+*.appxbundle
+*.appxupload
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# NUGET
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# .NET CORE
+project.lock.json
+project.fragment.lock.json
+
+# COMPILED SOURCE FILES
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.dmg
+
+# PACKAGED AND COMPRESSED FILES (uncomment as necessary)
+# *.7z
+# *.gz
+# *.iso
+# *.jar
+# *.rar
+# *.tar
+# *.zip
+
+# BINARY FILES (uncomment as necessary)
+# *.ai
+# *.psd
+# *.epo
+# *.eps
+# *.mp4
+# *.mov
+# *.mp3
+# *.mpeg
+
+# RUNTIME GENERATED FILES
+*.tmp
+*.lock
+*.log
+
+# NODE MODULES
+**/node_modules
+**/packages
+**/bin
+
+# BOWER MODULES
+**/bower_components
+**/bower_modules
+
+# DREAMWEAVER
+**/_notes
+
+# SUBLIME TEXT WORKSPACE FILES
+*.sublime-project
+*.sublime-workspace
+
+
+# output
+out
+dist
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# PARCEL
+*.parcel-cache

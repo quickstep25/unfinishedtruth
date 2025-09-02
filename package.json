@@ -1,0 +1,30 @@
+{
+  "name": "site-unfinishedtruth",
+  "version":"1.0.0",
+  "description": "",
+  "homepage": "https://www.unfinishedtruth.site/",
+  "license" : "UNLICENSED",
+  "private": true,
+  "targets": {
+    "default": {
+      "distDir": "www/dist"
+    }
+  },
+
+  "scripts": {
+    "dev": "parcel www/src/scripts/pug/index.pug --dist-dir www/dist",
+    "build": "parcel build www/src/scripts/pug/index.pug --dist-dir www/dist"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.15.4",
+    "@parcel/transformer-sass": "2.15.4",
+    "@types/bun": "latest",
+    "parcel": "^2.15.4",
+    "sass": "^1.91.0"
+  },
+  "author": {
+    "email": "admin@unfinishedtruth.site",
+    "name": "Doug Hill",
+    "url": "https://www.github.com/quickstep25"
+  }
+}

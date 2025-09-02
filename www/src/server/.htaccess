@@ -1,0 +1,156 @@
+# ================================
+# Base defaults
+# ================================
+# Serve pages as UTF-8 unless files say otherwise
+AddDefaultCharset UTF-8
+
+# Pick the default file to serve in a directory
+<IfModule mod_dir.c>
+  # Keeping DirectorySlash ON avoids duplicate-URL/SEO issues
+  DirectoryIndex index.html index.htm welcome.html default.html toc.html index.php
+</IfModule>
+
+# ================================
+# Custom error pages
+# ================================
+ErrorDocument 400 /public/status.400.html
+ErrorDocument 401 /public/status.401.html
+ErrorDocument 403 /public/status.403.html
+ErrorDocument 404 /public/status.404.html
+ErrorDocument 500 /public/status.500.html
+ErrorDocument 503 /public/status.503.html
+ErrorDocument 505 /public/status.505.html
+
+# ================================
+# Symlinks (use the safer option)
+# ================================
+<IfModule mod_negotiation.c></IfModule>
+# Use only one of these; SymLinksIfOwnerMatch is safer on shared hosts
+<IfModule mod_alias.c>
+  Options +SymLinksIfOwnerMatch
+</IfModule>
+
+# ================================
+# Security headers (safe defaults)
+# ================================
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # If your site is HTTPS-only, uncomment HSTS after you confirm everything:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  # (Enable *only* if all subdomains are HTTPS.)
+</IfModule>
+
+# ================================
+# CORS (fonts only to avoid overexposing)
+# ================================
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2?|ttf|otf|eot)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# ================================
+# Compression (Brotli first, then gzip)
+# ================================
+# Brotli (Apache 2.4.26+)
+<IfModule mod_brotli.c>
+  BrotliCompressionLevel 5
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
+  Header append Vary Accept-Encoding
+</IfModule>
+
+# Gzip fallback
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml image/svg+xml
+  Header append Vary Accept-Encoding
+</IfModule>
+
+# ================================
+# Caching (fast static, fresh HTML/API)
+# ================================
+# Avoid ETags that cause cache mismatches across servers
+FileETag None
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+
+# Fine-grained cache lifetimes
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Default if not matched below
+  ExpiresDefault "access plus 1 week"
+
+  # HTML & server-generated pages: always revalidate (avoid stale pages)
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType application/xml  "access plus 0 seconds"
+  ExpiresByType text/xml         "access plus 0 seconds"
+
+  # JS & CSS: long cache with immutable (bust via file versioning)
+  ExpiresByType text/css                       "access plus 1 year"
+  ExpiresByType application/javascript         "access plus 1 year"
+  <IfModule mod_headers.c>
+    <FilesMatch "\.(css|js)$">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+  </IfModule>
+
+  # Images: cache for a month (tune to taste)
+  ExpiresByType image/gif                      "access plus 1 month"
+  ExpiresByType image/png                      "access plus 1 month"
+  ExpiresByType image/jpeg                     "access plus 1 month"
+  ExpiresByType image/webp                     "access plus 1 month"
+  ExpiresByType image/svg+xml                  "access plus 1 month"
+  ExpiresByType image/x-icon                   "access plus 1 month"
+
+  # Fonts: long cache (version in filename)
+  ExpiresByType font/woff2                     "access plus 1 year"
+  ExpiresByType application/font-woff2         "access plus 1 year"
+  ExpiresByType application/font-woff          "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject  "access plus 1 year"
+  ExpiresByType application/x-font-ttf         "access plus 1 year"
+  ExpiresByType font/ttf                       "access plus 1 year"
+  ExpiresByType font/otf                       "access plus 1 year"
+</IfModule>
+
+# Ensure HTML/API are not cached by proxies if you want them fresh
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html?)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  <FilesMatch "\.(json|xml)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ================================
+# Favicon convenience (optional)
+# ================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^favicon\.ico$ /images/favicons/favicon.ico [L,R=302]
+</IfModule>
+
+# ================================
+# MIME types (only where hosts are missing them)
+# ================================
+<IfModule mod_mime.c>
+  AddType application/manifest+json                   webmanifest
+  AddType text/vtt                                    vtt
+  AddType image/webp                                  webp
+  AddType image/svg+xml                               svg svgz
+</IfModule>
+
+# ================================
+# Content-Security-Policy (OFF BY DEFAULT)
+# ================================
+# Start very permissive, then tighten; enabling blindly can break assets.
+# <IfModule mod_headers.c>
+#   Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+# </IfModule>
