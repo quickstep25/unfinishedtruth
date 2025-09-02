@@ -1,0 +1,280 @@
+$color-bg: #0b0b0b
+$color-bg-gradient: linear-gradient(135deg, #0b0b0b 0%, #151515 100%)
+$color-text: #f5f5f5
+$color-accent: #e50914 
+$color-muted: #aaa
+$font-headline: 'Oswald', sans-serif
+$font-body: 'Source Sans 3', sans-serif
+  
+.reader 
+  padding: 2rem
+  display: flex
+  gap: 2rem
+
+
+.toc 
+  flex: 0 0 250px
+  background: rgba(255,255,255,0.02)
+  padding: 1rem
+  border-radius: 0.5rem 
+.toc h2 
+  font-family: $font-headline
+  margin-bottom: 1rem
+  font-size: 1.1rem 
+.toc ol 
+  list-style: none
+  counter-reset: toc 
+.toc li 
+  margin-bottom: 0.75rem 
+.toc
+  li
+    &::before
+      counter-increment: toc
+      content: counters(toc, ".") ". "
+      margin-right: 0.5rem
+      color: $color-muted
+
+.chapter 
+  margin-bottom: 3rem 
+.chapter h1 
+  font-family: $font-headline
+  font-size: 2rem
+  margin-bottom: 1rem 
+.chapter .lead 
+  font-weight: 600
+  color: #ddd
+  margin-bottom: 1rem 
+
+.pdf-frame 
+  width: 100%
+  height: 80vh
+  border: none
+  border-radius: 0.5rem 
+
+.reveal 
+  opacity: 0
+  transform: translateY(20px)
+  transition: all 0.6s ease 
+.reveal.in 
+  opacity: 1
+  transform: translateY(0) 
+
+.meta-note 
+  font-size: 0.9rem
+  color: $color-muted
+  margin-top: 1.5rem 
+.small 
+  font-size: 0.85rem
+  color: $color-muted 
+  
+
+$bg-0: #0b0d0f       // page background (near-black)
+$bg-1: #121417       // cards/sections
+$bg-2: #191c20       // subtle elevation
+$txt:  #f2f3f5       // primary text
+$txt-dim: #c7ccd3    // secondary text
+$border: #2a2f36     // hairlines
+$accent: #e0272f     // red slash accent
+$focus: $accent      // focus ring
+$muted: #8a9099      // meta
+
+$radius-xl: 1.25rem
+$radius-lg: .875rem
+$radius-md: .5rem
+$shadow-1: 0 10px 24px rgba(0,0,0,.35)
+$shadow-2: 0 30px 60px rgba(0,0,0,.5)
+
+$maxw: 1100px
+$gutter: clamp(16px, 3.2vw, 28px)
+
+*
+  box-sizing: border-box 
+
+html, body 
+  height: 100% 
+body.theme-dark 
+  margin: 0
+  color: $txt
+  background: radial-gradient(1200px 800px at 70% -20%, #1a1d22 0%, #0c0f12 45%, $bg-0 100%)
+  font-family: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif
+  line-height: 1.6
+
+img 
+  max-width: 100%
+  height: auto
+  display: block 
+
+:root 
+  scroll-behavior: smooth 
+
+h1, h2, h3, .brand__title 
+  font-family: 'Oswald', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  letter-spacing: .02em 
+
+h1 
+  font-size: clamp(2rem, 5.2vw, 3.5rem)
+  line-height: 1.1
+  margin: 0 0 .6em 
+h2 
+  font-size: clamp(1.4rem, 3.2vw, 2rem)
+  line-height: 1.2
+  margin: 0 0 .5em 
+h3 
+  font-size: clamp(1.1rem, 2vw, 1.3rem)
+  margin: 1.8rem 0 .6rem
+  color: $txt 
+
+p 
+  margin: 0 0 1rem
+  color: $txt-dim 
+.lead 
+  font-size: clamp(1.05rem, 1.9vw, 1.25rem)
+  color: $txt 
+.small 
+  font-size: .925rem
+  color: $muted 
+
+// ---------- Layout: header & nav ----------
+.site-header 
+  position: sticky
+  top: 0
+  z-index: 50
+  backdrop-filter: saturate(140%) blur(8px)
+  background: linear-gradient(180deg, rgba(14,16,18,.85), rgba(14,16,18,.35) 70%, rgba(14,16,18,0))
+  border-bottom: 1px solid rgba($border, .4)
+
+.navbar 
+  max-width: $maxw
+  margin: 0 auto
+  padding: .8rem $gutter
+  display: flex
+  align-items: center
+  gap: 1rem
+
+.brand 
+  color: $txt
+  text-decoration: none
+  font-weight: 700 
+.brand__title 
+  font-size: 1.1rem
+  text-transform: uppercase 
+.nav-links 
+  list-style: none
+  margin: 0 0 0 auto
+  padding: 0
+  display: flex
+  gap: .9rem 
+.nav-links a 
+  color: $txt-dim
+  text-decoration: none
+  padding: .4rem .7rem
+  border-radius: $radius-md
+  transition: color .2s ease,background .2s ease 
+.nav-links a:hover 
+  color: $txt
+  background: rgba(255,255,255,.04) 
+
+// ---------- Hero ----------
+.hero 
+  max-width: $maxw 
+  margin: 3.2rem auto 
+  padding: 0 $gutter 
+  display: grid 
+  grid-template-columns: 1fr 
+  gap: 2.2rem 
+  align-items: center 
+  @media (min-width: 880px)
+    grid-template-columns: 42% 1fr
+    gap: 3rem  
+
+.hero__media 
+  filter: drop-shadow($shadow-2) 
+.hero__cover 
+  border-radius: $radius-xl
+  box-shadow: $shadow-2 
+
+.hero__title 
+  margin: 0 0 .6rem 
+  text-transform: uppercase 
+.hero__title--line  
+  display: block 
+.hero__tagline  
+  max-width: 50ch 
+
+.cta-row  
+  display: flex 
+  flex-wrap: wrap 
+  gap: .8rem 
+  margin-top: 1.2rem 
+
+// ---------- Buttons ----------
+.button  
+  display: inline-flex 
+  align-items: center 
+  justify-content: center 
+  gap: .5rem 
+  text-decoration: none
+  border-radius: $radius-lg 
+  padding: .8rem 1.1rem 
+  font-weight: 700 
+  letter-spacing: .02em
+  transition: transform .06s ease, background .2s ease, color .2s ease, box-shadow .2s ease
+  border: 1px solid rgba(255,255,255,.08) 
+  ox-shadow: 0 1px 0 rgba(255,255,255,.04) inset
+
+.button--primary  
+  background: $accent 
+  color: white 
+.button--primary:hover  
+  filter: brightness(1.06) 
+.button--ghost  
+  background: transparent 
+  color: $txt 
+  border-color: rgba(255,255,255,.16) 
+.button--ghost:hover  
+  background: rgba(255,255,255,.06) 
+.button--link  
+  background: transparent 
+  color: $txt 
+  border: none 
+  padding-left: 0 
+.button:active 
+  transform: translateY(1px) 
+
+// ---------- Preview + Legal Sections ----------
+.preview, .legal  
+  max-width: $maxw 
+  margin: 2.5rem auto 
+  padding: 0 $gutter 
+.preview__actions  
+  margin-top: .8rem 
+
+.legal  
+  border-top: 1px solid $border 
+  padding-top: 2rem 
+
+// ---------- Footer ----------
+.site-footer  
+  max-width: $maxw 
+  margin: 3rem auto 
+  padding: 0 $gutter 3rem 
+  border-top: 1px solid $border 
+
+// ---------- Reader (PDF) ----------
+body.reader .read  
+  max-width: $maxw 
+  margin: 2.2rem auto 
+  padding: 0 $gutter 
+.read__viewer  
+  margin-top: 1rem 
+  background: $bg-1 
+  border: 1px solid $border 
+  border-radius: $radius-lg 
+  box-shadow: $shadow-1 
+  overflow: hidden 
+.pdf-frame  
+  width: 100% 
+  height: min(86vh, 1200px) 
+  display: block 
+
+

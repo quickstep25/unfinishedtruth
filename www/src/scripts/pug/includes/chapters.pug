@@ -1,0 +1,41 @@
+- const year = new Date().getFullYear();
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title Chapters — Silenced No More
+		link(rel="stylesheet" href="../sass/chapters.sass")
+body(class="theme-dark chapters")
+	header.site-header
+		nav.navbar
+			a.brand(href="/")
+				span.brand__title Silenced No More
+	ul.nav-links
+		li: a(href="#toc") Table of Contents
+		li: a(href="../../docs/silenced-no-more.pdf" download) Download PDF
+main.reader
+	aside.toc#toc
+		h2 Table of Contents
+			ol
+				li: a(href="#c1") Prologue
+				li: a(href="#c2") An Unexpected Humanitarian
+				li: a(href="#c3") Strange Behavior
+
+		article.content
+			section.chapter#c1
+				h1 Prologue
+				p.lead I didn’t set out to write a book. I set out to remember
+				p.TODO Replace with your real text or excerpt.
+			section.chapter#c2
+				h1 An Unexpected Humanitarian
+				p.lead Sometimes the person you argued with yesterday is the one who shows up when no one else will.
+				p.TODO Replace with the finalized canvas content when ready.
+			section.chapter#c3
+				h1 Strange Behavior
+				p.lead There’s a kind of quiet that isn’t peace. It’s distance.
+				p.TODO Replace with the finalized canvas content when ready.
+
+	footer.site-footer
+		p.small © #{year} Doug Hill. All rights reserved.

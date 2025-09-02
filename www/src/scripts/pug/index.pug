@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Silenced No More
+    meta(name="theme-color" content="#000000")
+    //- Basic Open Graph (SEO can be expanded later)
+    meta(property="og:title" content="Silenced No More — Doug Hill")
+    meta(property="og:type" content="website")
+    meta(property="og:image" content="../../images/book_cover_01.jpg")
+    meta(property="og:url" content="https://unfinishedtruth.site")
+
+    //- Fonts (Headlines: Oswald, Body: Source Sans 3)
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(rel="stylesheet" href="https://use.typekit.net/cdx8fbc.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap")
+
+    //- Styles (compiled from SASS)
+    script(src="./../js/main.js" type="module" defer)
+
+    //- Optional: Google Analytics (replace G-6K7CS22F4E)
+    script(async src="https://www.googletagmanager.com/gtag/js?id=G-6K7CS22F4E")
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+      gtag('config', 'G-6K7CS22F4E');
+
+  body(class="theme-dark")
+    header.site-header
+      nav.navbar
+        a.brand(href="/")
+          //- Inline wordmark to keep things minimal
+          span.brand__title The Unfinished Truth
+        ul.nav-links
+          //- li: a(href="read.pug") Read Online
+          li
+            a(href="../../docs/silenced-no-more.pdf")
+              svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="icon_down")
+                path(d="M128 128C128 92.7 156.7 64 192 64L341.5 64C358.5 64 374.8 70.7 386.8 82.7L493.3 189.3C505.3 201.3 512 217.6 512 234.6L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 128zM336 122.5L336 216C336 229.3 346.7 240 360 240L453.5 240L336 122.5zM303 505C312.4 514.4 327.6 514.4 336.9 505L400.9 441C410.3 431.6 410.3 416.4 400.9 407.1C391.5 397.8 376.3 397.7 367 407.1L344 430.1L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 430.1L273 407.1C263.6 397.7 248.4 397.7 239.1 407.1C229.8 416.5 229.7 431.7 239.1 441L303.1 505z")
+              | Truth
+    main
+      section.hero
+        .hero__media
+          //- Replace with your cover art path; keep high-res and optimized
+          img.hero__cover(src="../../images/book_cover_01.jpg" alt="Cover of 'Silenced No More' by Doug Hill")
+        .hero__content
+          h1.hero__title
+            span.hero__title--line SILENCED
+            span.hero__title--line NO MORE
+          p.hero__tagline
+            //- TODO: Replace with your logline in one hard-hitting sentence.
+            | A true account of what happens when loyalty meets silence—and why I chose to speak.
+
+          p.meta-info Select Format
+          p.meta-help The ePUB version does not contain images.
+
+          .cta-row
+            a.button.button--ghost(href="../../docs/silenced-no-more.pdf") PDF
+            a.button.button--ghost(href="../../docs/silenced-no-more.epub") ePUB
+
+      //- Legal & copyright footer block
+
+    footer.site-footer
+      section
+        p.small.contact Information?  Questions?  Support? 
+          a(href="mailto:admin@unfinishedtruth.site") contact@unfinishedtruth.site
+        p.small
+          span.legal Disclaimer:
+          | This memoir recounts events they were experienced and remembered. 
+          | Some names and personal details have been changed or omitted to protect privacy.
+
+        p.small © #{new Date().getFullYear()} Doug Hill. All rights reserved. No part of this publication may be reproduced without permission.
+

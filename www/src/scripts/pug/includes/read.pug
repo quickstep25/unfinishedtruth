@@ -1,0 +1,32 @@
+- const year = new Date().getFullYear();
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title Read — Silenced No More
+		link(rel="stylesheet" href="../sass/read.sass")
+	body(class="theme-dark reader")
+		header.site-header
+			nav.navbar
+				a.brand(href="/")
+					span.brand__title Silenced No More
+				ul.nav-links
+					li: a(href="chapters.pug") HTML Chapters
+					li: a(href="../../docs/silenced-no-more.pdf" download) Download PDF
+
+		main.read
+			section.read__controls
+				h1 Read Online
+				p.small Prefer HTML on mobile? 
+					a(href="chapters.pug") Try the chapter view.
+
+		section.read__viewer
+			object(data="../../docs/silenced-no-more.pdf" type="application/pdf" aria-label="Embedded PDF viewer" class="pdf-frame")
+				p Your device may not support embedded PDFs. 
+					a(href="../../docs/silenced-no-more.pdf") Open the PDF directly.
+
+	footer.site-footer
+		p.small © #{year} Doug Hill. All rights reserved.
+

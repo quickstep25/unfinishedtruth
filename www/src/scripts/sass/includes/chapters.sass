@@ -1,0 +1,83 @@
+
+$maxw: 1100px
+$gutter: clamp(16px, 3.2vw, 28px)
+$bg-0: #0b0d0f       // page background (near-black)
+$bg-1: #121417       // cards/sections
+$bg-2: #191c20       // subtle elevation
+$txt:  #f2f3f5       // primary text
+$txt-dim: #c7ccd3    // secondary text
+$border: #2a2f36     // hairlines
+$accent: #e0272f     // red slash accent
+$focus: $accent      // focus ring
+$muted: #8a9099      // meta
+
+$radius-xl: 1.25rem
+$radius-lg: .875rem
+$radius-md: .5rem
+$shadow-1: 0 10px 24px rgba(0,0,0,.35)
+$shadow-2: 0 30px 60px rgba(0,0,0,.5)
+
+
+body.chapters.reader
+  display: grid
+  grid-template-columns: 1fr
+  max-width: $maxw
+  margin: 2rem auto
+  gap: 1.8rem
+  padding: 0 $gutter
+  @media (min-width: 980px)
+    body.chapters.reader 
+      grid-template-columns: 280px 1fr
+
+.toc
+  position: sticky
+  top: 72px
+  align-self: start
+  background: $bg-1
+  border: 1px solid $border
+  border-radius: $radius-lg
+  padding: 1rem
+  box-shadow: $shadow-1
+.toc h2
+  margin-top: .2rem
+.toc ol
+  margin: .4rem 0 0 1.1rem
+  padding: 0
+.toc a
+  color: $txt-dim
+  text-decoration: none
+.toc a:hover 
+  color: $txt
+
+.content
+  background: $bg-1
+  border: 1px solid $border
+  border-radius: $radius-lg 
+  box-shadow: $shadow-1
+  padding: clamp(16px, 3vw, 32px)
+.chapter + .chapter 
+  margin-top: 2.5rem
+  padding-top: 2.5rem
+  border-top: 1px solid $border
+
+:focus-visible 
+  outline: 3px solid $focus
+  outline-offset: 3px
+  border-radius: $radius-md
+
+* 
+  animation: none !important
+  transition: none !important
+
+.reveal 
+  opacity: 0
+  transform: translateY(10px)
+  transition: opacity .5s ease, transform .5s ease
+.reveal.in 
+  opacity: 1
+  transform: translateY(0)
+
+// ---------- Utilities ----------
+.meta-note 
+  color: $muted
+

@@ -1,0 +1,173 @@
+// INDEX.HTML
+@use "sass:color"
+
+$color-bg: #0b0b0b
+$color-bg-gradient: linear-gradient(135deg, #0b0b0b 0%, #151515 100%)
+$color-text: #f5f5f5
+$color-accent: #e50914 
+$color-muted: #777575ff
+$font-headline: 'cheddar-gothic-rough', 'pf-fuel-decay', 'pf-fuel-grime', 'kiln-sans-spiked','cubano','abolition','Oswald', sans-serif
+$font-brand: 'Oswald', sans-serif
+$font-body: 'Source Sans 3', sans-serif
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+html, body
+	height: 100%
+
+body  
+	font-family: $font-body
+	background: $color-bg-gradient
+	color: $color-text
+	line-height: 1.6
+	display: flex
+	flex-direction: column
+	flex-wrap: nowrap
+	justify-content: flex-start
+	align-items: stretch
+
+
+
+a
+	color: $color-accent
+	text-decoration: none
+	&:hover
+		text-decoration: none
+
+// SITE LAYOUT
+
+.site-header 
+	background: rgba(0,0,0,0.85)
+	padding: 1rem 2rem
+	position: sticky
+	top: 0
+	z-index: 10
+
+.navbar 
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	.brand__title
+		font-family: $font-brand
+		font-weight: 700
+		font-size: 1.25rem
+		color: $color-text 
+    
+	.nav-links
+		list-style: none
+		display: flex
+		gap: 1.5rem 
+		a
+			display: inline-flex
+			align-items: center
+			gap: 0.4rem
+			font-weight: 600
+			svg
+				width: 1em
+				height: 1em
+				fill: $color-accent
+
+.site-footer 
+	background: rgba(36, 34, 34, 0.9)
+	text-align: center
+	padding: 2rem 1rem
+	font-size: 0.85rem
+	color: $color-muted
+	height: inherit
+	margin-top: 100px
+
+	.small
+		padding: 10px 0 0
+
+	.contact
+		margin-bottom: 20px
+
+	.legal
+		font-style: italic
+
+// HERO
+
+.hero 
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 2rem 2rem
+	// gap: 2rem
+	// grid-template-columns: 1fr 1fr
+
+	&__media
+		text-align: center
+		margin-bottom: 4em
+
+	&__cover 
+		width: 60%
+		border-radius: 0.5rem
+		box-shadow: 0 0 25px rgba(0,0,0,0.6)
+
+	&__title 
+		font-family: $font-headline
+		font-size: 3rem
+		font-weight: 700
+		line-height: 1.1
+		margin-bottom: 1rem
+		text-align: center
+		span  
+			display: block 
+
+	&__tagline
+		font-size: 1.2rem
+		margin-bottom: 3rem
+		color: $color-muted 
+
+.cta-row
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: center
+	gap: 1rem
+	flex-wrap: wrap
+	margin-top: 0.5rem
+	margin-bottom: 0.5rem
+
+.meta-info
+	text-align: center
+.meta-help
+	text-align: center
+	color: $color-muted
+	font-style: italic
+
+
+.button 
+	display: inline-block
+	padding: 0.75rem 1.5rem
+	border-radius: 0.35rem
+	font-weight: 600
+	font-size: 1.25rem
+	transition: all 0.25s ease
+	cursor: pointer
+	width: 25%
+	text-align: center
+
+	&--primary
+		background: $color-accent
+		color: #fff
+		&:hover
+			background: color.adjust($color-accent, $lightness: -8%)	
+	&--ghost
+		border: 2px solid $color-accent
+		color: $color-accent 
+		&:hover
+			background: #e50914a6
+			color: #000
+	&--link
+		color: $color-accent
+		font-weight: 600 
+
+
+
+
+	
