@@ -1,0 +1,9 @@
+# This CODEOWNERS file defines code ownership for the repository.
+# Lines are in the format: <pattern> <owner>
+
+# Set default owner for everything in the repo
+* @quickstep25
+
+# Example for future refinement:
+# /src/ @quickstep25
+# /docs/ @quickstep25
