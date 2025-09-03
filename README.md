@@ -3,24 +3,26 @@
 [![Build Status](https://dev.azure.com/hilltechsolutions/Unfinished%20Truth/_apis/build/status%2Fquickstep25.unfinishedtruth?branchName=master)](https://dev.azure.com/hilltechsolutions/Unfinished%20Truth/_build/latest?definitionId=2&branchName=master)
 
 ## Overview
-- Source code and build pipeline for my personal website project, using Parcel, PUG templates, and Sass.
-- Repository for experimenting with builds, pipelines, and personal projects.
-- Repository for setting up Azure DevOps pipelines, build automation, and deployment workflows.
+This repository serves two purposes:
+- **Website Project** — Source code and build pipeline for my personal site, built with Parcel, PUG templates, and Sass.
+- **Experimentation** — A space for practicing and refining Azure DevOps pipelines, automation, and deployment workflows.
 
 ## Description
-A personal memoir constructed as a statement to law enforcement. Formatted like a story but used as tool to provide clear historical fact based on memory though lived experience.
+This project also contains material for *The Unfinished Truth*, a personal memoir created as both a narrative and a factual statement.  
+It is formatted like a story but serves as a tool to provide historical fact, based on lived experience and memory.
 
 ## Code of Conduct
-This repository is closed to community participation as outlined in the [code of conduct](.github/CODE_OF_CONDUCT.md).
+This repository is closed to community participation.  
+See the [Code of Conduct](.github/CODE_OF_CONDUCT.md) for details.
 
 ## Contributing
-No contributions are accepted. Details listed in the [contribution guide](.github/CONTRIBUTING.md).
+Contributions are not accepted.  
+See the [Contribution Guide](.github/CONTRIBUTING.md) for more information.
 
 ## License
-No [license](.github/LICENSE). All rights reserved.
+All rights reserved. See the [License](.github/LICENSE) file.
 
 ## Technical Features
-- Automated build and test pipeline
-- Modern frontend build (Parcel, Sass, Pug, etc.)
+- Automated CI pipeline in Azure DevOps
+- Modern frontend build (Parcel, Sass, PUG)
 - Deployment-ready artifacts
-
