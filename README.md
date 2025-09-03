@@ -16,7 +16,7 @@ This repository is closed to community participation as outlined in the [code of
 ## Contributing
 No contributions are accepted. Details listed in the [contribution guide](.github/CONTRIBUTING.md).
 
-# License
+## License
 No [license](.github/LICENSE). All rights reserved.
 
 ## Technical Features
