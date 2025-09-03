@@ -1,0 +1,31 @@
+# azure-pipelines.yml
+
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - "*"
+  drafts: false
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js 20.x'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Run npm installation of dependencies and build project'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Distribution as Artifact'
+  inputs:
+    PathtoPublish: 'www/dist'
+    ArtifactName: 'UnfinishedTruth-Artifact'
+    publishLocation: 'Container'
