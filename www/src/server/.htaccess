@@ -13,13 +13,13 @@ AddDefaultCharset UTF-8
 # ================================
 # Custom error pages
 # ================================
-ErrorDocument 400 /public/status.400.html
-ErrorDocument 401 /public/status.401.html
-ErrorDocument 403 /public/status.403.html
-ErrorDocument 404 /public/status.404.html
-ErrorDocument 500 /public/status.500.html
-ErrorDocument 503 /public/status.503.html
-ErrorDocument 505 /public/status.505.html
+# ErrorDocument 400 /public/status.400.html
+# ErrorDocument 401 /public/status.401.html
+# ErrorDocument 403 /public/status.403.html
+# ErrorDocument 404 /public/status.404.html
+# ErrorDocument 500 /public/status.500.html
+# ErrorDocument 503 /public/status.503.html
+# ErrorDocument 505 /public/status.505.html
 
 # ================================
 # Symlinks (use the safer option)
@@ -132,10 +132,10 @@ FileETag None
 # ================================
 # Favicon convenience (optional)
 # ================================
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteRule ^favicon\.ico$ /images/favicons/favicon.ico [L,R=302]
-</IfModule>
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteRule ^favicon\.ico$ /images/favicons/favicon.ico [L,R=302]
+# </IfModule>
 
 # ================================
 # MIME types (only where hosts are missing them)
