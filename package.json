@@ -1,25 +1,29 @@
 {
   "name": "site-unfinishedtruth",
-  "version":"1.0.0",
+  "version": "1.0.0",
   "description": "",
   "homepage": "https://www.unfinishedtruth.site/",
-  "license" : "UNLICENSED",
+  "license": "UNLICENSED",
   "private": true,
   "targets": {
     "default": {
       "distDir": "www/dist"
     }
   },
-
   "scripts": {
+    "clean": "rimraf www/dist .parcel-cache",
+    "server": "cp www/src/server/robots.txt www/dist/robots.txt && cp www/src/server/.htaccess www/dist/.htaccess && cp www/src/server/sitemap.xml www/dist/sitemap.xml && cp www/src/server/site.webmanifest www/dist/site.webmanifest",
     "dev": "parcel www/src/scripts/pug/index.pug --dist-dir www/dist",
-    "build": "parcel build www/src/scripts/pug/index.pug --dist-dir www/dist"
+    "build": "npm run clean && parcel build www/src/scripts/pug/index.pug --dist-dir www/dist && npm run server"
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "2.15.4",
     "@parcel/transformer-pug": "^2.15.4",
     "@parcel/transformer-sass": "2.15.4",
+    "@parcel/transformer-webmanifest": "2.15.4",
     "@types/bun": "latest",
     "parcel": "^2.15.4",
+    "rimraf": "^6.0.1",
     "sass": "^1.91.0"
   },
   "author": {
