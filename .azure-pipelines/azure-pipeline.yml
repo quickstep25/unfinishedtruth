@@ -1,5 +1,10 @@
 # azure-pipelines.yml
 
+trigger:
+  branches:
+    include:
+      - master
+
 pr:
   branches:
     include:
@@ -45,10 +50,11 @@ stages:
         PathtoPublish: "www/dist"
         ArtifactName: "Artifact_UnfinishedTruth"
         publishLocation: "Container"
+
 - stage: Deploy
   displayName: Deploy to Dreamhost
   dependsOn: Build
-  condition: succeeded()
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))  
   jobs:
   - deployment: deploy_to_dreamhost
     displayName: Upload to SFTP
@@ -79,12 +85,11 @@ stages:
                 mirror -R --parallel=4 --delete --verbose $LOCAL_DIR $(FTP_REMOTE_DIR);
                 bye
               "
-            displayName: SFTP Mirror Upload
-
+              displayName: SFTP Mirror Upload
 - stage: ReleaseNotes
   displayName: Generate Release Notes
   dependsOn: Deploy
-  condition: succeeded()
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/master'))  
   jobs:
   - job: notes
     displayName: Create and Publish Notes
