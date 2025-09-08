@@ -34,7 +34,7 @@ stages:
       displayName: Install Dependencies and Build
 
     - bash: |
-        PKG_VERSION=$(node -p "require("./package.json").version")
+        PKG_VERSION=$(node -p "require('./package.json').version")
         echo "Detected package.json version: $PKG_VERSION"
         echo "##vso[build.updatebuildnumber]$PKG_VERSION-$(Build.SourceBranchName)-$(Build.BuildId)"
       displayName: set Version number from package.json
@@ -74,6 +74,8 @@ stages:
                 set net:max-retries 2;
                 set net:timeout 20;
                 set sftp:auto-confirm yes;
+
+                rm -r $(FTP_REMOTE_DIR)/*;
                 mirror -R --parallel=4 --delete --verbose $LOCAL_DIR $(FTP_REMOTE_DIR);
                 bye
               "
