@@ -82,7 +82,7 @@ stages:
                 set sftp:auto-confirm yes;
 
                 rm -r $(FTP_REMOTE_DIR)/*;
-                mirror -R --parallel=4 --delete --verbose $LOCAL_DIR $(FTP_REMOTE_DIR);
+                mirror -R --parallel=4 --delete --verbose "$LOCAL_DIR/" $(FTP_REMOTE_DIR);
                 bye
               "
               displayName: SFTP Mirror Upload
