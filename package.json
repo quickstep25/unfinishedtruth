@@ -31,5 +31,8 @@
     "email": "admin@unfinishedtruth.site",
     "name": "Doug Hill",
     "url": "https://www.github.com/quickstep25"
+  },
+  "dependencies": {
+    "@microsoft/clarity": "^1.0.0"
   }
 }
