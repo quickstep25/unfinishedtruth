@@ -3,17 +3,17 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title The Unfinished Truth — A Memoir of Chris Chilcote and Sterling Thompson
+    title The Unfinished Truth — A Memoir of Chris Chilcote and Sterling Thompson (Spokane, WA)
     meta(name="author" content="Doug Hill")
     meta(name="description" content="A lived-experience memoir exposing how trust with Chris Chilcote and Sterling Thompson shattered when their sexual interactions with boys came to light.")    
     link(rel="canonical" href="https://unfinishedtruth.site/")
-    meta(name="keywords" content="memoir,Chris Chilcote,Christofer Chilcote,Sterling Thompson,<[:kaos:]>,Chritato,YoMomma,chilcote82,SecondHndSmoke7,R1se4ndgr1nd")
+    meta(name="keywords" content="memoir,Chris Chilcote,Christofer Chilcote,Sterling Thompson,<[:kaos:]>,Chritato,YoMomma,chilcote82,SecondHndSmoke7,R1se4ndgr1nd,Spokane WA,Spokane,Honolulu HI,Honolulu,grooming")
     meta(name="robots" content="index,follow,max-image-preview:large")
 
-    meta(property="og:title" content="The Unfinished Truth — A Memoir of Chris Chilcote and Sterling Thompson")
+    meta(property="og:title" content="The Unfinished Truth — A Memoir of Chris Chilcote and Sterling Thompson (Spokane, WA)")
     meta(property="og:description" content="A lived-experience memoir exposing how trust with Chris Chilcote and Sterling Thompson shattered when their sexual interactions with boys came to light.")
     meta(property="og:type" content="website")
-    meta(property="og:image" content="../../images/book_cover_01.jpg")
+    meta(property="og:image" content="./images/book_cover_01.jpg")
     meta(property="og:url" content="https://unfinishedtruth.site/")
 
     script(type="application/ld+json").
@@ -37,9 +37,10 @@ html(lang="en")
         ],
         "keywords": [
           "memoir","Chris Chilcote","Christofer Chilcote","Sterling Thompson",
-          "<[:kaos:]>","Chritato","YoMomma","chilcote82","SecondHndSmoke7","R1se4ndgr1nd"
-        ],
-        "dateModified": "2025-09-07"
+          "<[:kaos:]>","Chritato","YoMomma","chilcote82","SecondHndSmoke7","R1se4ndgr1nd",
+          "Spokane WA","Spokane Washington","Honolulu HI","Honolulu Hawaii","child grooming","online predator"
+        ], 
+        "dateModified": "2026-06-17"
       }
 
     //- Fonts (Headlines: Oswald, Body: Source Sans 3)
@@ -47,14 +48,15 @@ html(lang="en")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(rel="stylesheet" href="https://use.typekit.net/cdx8fbc.css")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap")
-    link(rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png")
-    link(rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png")
-    link(rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png")
-    link(rel="shortcut icon" href="../../images/favicon.ico")
-    link(rel="manifest" type="application/json" href="../../server/site.webmanifest")
+    link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
+    link(rel="shortcut icon" href="favicon.ico")
+    link(rel="manifest" type="application/json" href="site.webmanifest")
 
     //- Styles (compiled from SASS)
-    script(src="./../js/main.js" type="module" defer)
+    link(rel="stylesheet" href="./css/main.css")
+    //- script(src="./../js/main.js" type="module" defer)
 
     //- Optional: Google Analytics (replace G-6K7CS22F4E)
     script(async src="https://www.googletagmanager.com/gtag/js?id=G-6K7CS22F4E")
@@ -67,40 +69,57 @@ html(lang="en")
     header.site-header
       nav.navbar
         a.brand(href="/")
-          //- Inline wordmark to keep things minimal
           span.brand__title The Unfinished Truth
         ul.nav-links
-          //- li: a(href="read.pug") Read Online
           li
-            a(href="../../docs/silenced-no-more.pdf")
+            a(href="./docs/silenced-no-more.pdf")
               svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="icon_down")
                 path(d="M128 128C128 92.7 156.7 64 192 64L341.5 64C358.5 64 374.8 70.7 386.8 82.7L493.3 189.3C505.3 201.3 512 217.6 512 234.6L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 128zM336 122.5L336 216C336 229.3 346.7 240 360 240L453.5 240L336 122.5zM303 505C312.4 514.4 327.6 514.4 336.9 505L400.9 441C410.3 431.6 410.3 416.4 400.9 407.1C391.5 397.8 376.3 397.7 367 407.1L344 430.1L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 430.1L273 407.1C263.6 397.7 248.4 397.7 239.1 407.1C229.8 416.5 229.7 431.7 239.1 441L303.1 505z")
               | Truth
     main
       section.hero
         .hero__media
-          //- Replace with your cover art path; keep high-res and optimized
-          img.hero__cover(src="../../images/book_cover_01.jpg" alt="Cover of 'Silenced No More' by Doug Hill")
+          img.hero__cover(src="./images/book_cover_01.jpg" alt="Cover of 'Silenced No More' by Doug Hill")
         .hero__content
           h1.hero__title
             span.hero__title--line SILENCED
             span.hero__title--line NO MORE
           p.hero__tagline
-            //- TODO: Replace with your logline in one hard-hitting sentence.
             | The most dangerous lies are the ones you never suspect &mdash;
             br
             | until truth forces you to see 
-            br
             em what you never believed existed.
 
           p.meta-info Select Format
 
           .cta-row
-            a.button.button--ghost(href="../../docs/silenced-no-more.pdf") PDF
-            a.button.button--ghost(href="../../docs/silenced-no-more.epub") ePUB
+            a.button.button--ghost(href="./docs/silenced-no-more.pdf") PDF
+            a.button.button--ghost(href="./docs/silenced-no-more.epub") ePUB
 
           p.meta-help The ePUB version does not contain images.
-      //- Legal & copyright footer block
+
+      section.excerpt
+
+        h2 The Unfinished Truth: Chris Chilcote and Sterling Thompson
+        p.location Spokane, Washington • Honolulu, Hawaii
+
+        p This memoir documents the systematic online grooming of a minor, attempts to intervene, and the subsequent abandonment, arson, and institutional silence that followed.
+
+        p The police were provided a fully documented investigation—names, dates, digital evidence, and witness contacts—complete with an offer to undergo polygraph testing. Their silence signals institutional failure at its core.
+
+        p This is not just a story of personal betrayal. It is documentation of how easily a predator operates when institutions fail to act, witnesses choose comfort over truth, friends become willing to believe any lie, and the systems meant to protect children wait for casualties before acting — all structurally inadequate. 
+
+        p Chris Chilcote is not some one-of-a-kind monster who slipped through the cracks — he is exactly what the system is designed to allow.
+
+        p.exists This memoir exists because silence is complicity. 
+
+        p It exists because all other avenues for accountability failed.
+        
+        p.warning
+          strong Content Warning:
+          | &nbsp;&nbsp;Explicit accounts of child grooming, psychological manipulation, and trauma.
+        p.callout
+          em If you know Chris Chilcote or Sterling Thompson from Spokane, or if you have children who game online, please read and share.
 
     footer.site-footer
       section
@@ -112,4 +131,3 @@ html(lang="en")
           | Some names and personal details have been changed or omitted to protect privacy.
 
         p.small © #{new Date().getFullYear()} Doug Hill. All rights reserved. No part of this publication may be reproduced without permission.
-

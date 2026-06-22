@@ -2,37 +2,36 @@
   "name": "site-unfinishedtruth",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://www.unfinishedtruth.site/",
-  "license": "UNLICENSED",
+  "homepage": "https://unfinishedtruth.site/",
+  "license": "LICENSED",
   "private": true,
   "targets": {
     "default": {
-      "distDir": "www/dist"
+      "distDir": ""
     }
   },
   "scripts": {
-    "clean": "rimraf www/dist .parcel-cache",
-    "server": "cp www/src/server/robots.txt www/dist/robots.txt && cp www/src/server/.htaccess www/dist/.htaccess && cp www/src/server/sitemap.xml www/dist/sitemap.xml && cp www/src/server/site.webmanifest www/dist/site.webmanifest",
-    "dev": "parcel www/src/scripts/pug/index.pug --dist-dir www/dist",
-    "build": "npm run clean && parcel build www/src/scripts/pug/index.pug --dist-dir www/dist && npm run server"
-  },
-  "devDependencies": {
-    "@parcel/packager-raw-url": "2.15.4",
-    "@parcel/transformer-jsonld": "2.15.4",
-    "@parcel/transformer-pug": "^2.15.4",
-    "@parcel/transformer-sass": "2.15.4",
-    "@parcel/transformer-webmanifest": "2.15.4",
-    "@types/bun": "latest",
-    "parcel": "^2.15.4",
-    "rimraf": "^6.0.1",
-    "sass": "^1.91.0"
+    "clean": "gulp clean",
+    "watch": "gulp watch",
+    "dev": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp"
   },
   "author": {
     "email": "admin@unfinishedtruth.site",
     "name": "Doug Hill",
     "url": "https://www.github.com/quickstep25"
   },
-  "dependencies": {
-    "@microsoft/clarity": "^1.0.0"
+  "packageManager": "yarn@4.17.0",
+  "devDependencies": {
+    "chalk": "^5.6.2",
+    "chalk-animation": "^2.0.3",
+    "cross-env": "^10.1.0",
+    "del": "^8.0.1",
+    "fancy-log": "^2.0.0",
+    "gulp": "^5.0.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.101.0",
+    "vinyl-fs": "^4.0.2"
   }
 }
