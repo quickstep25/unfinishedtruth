@@ -41,7 +41,7 @@ const paths = {
 };
 
 async function clean_dist() {
-	await deleteAsync(['dist/**', '!dist']);
+	await deleteAsync(['dist/**', '!dist'], { dot: true });
 	log(
 		'CleanUp:  Distribution Files Removed from' + chalk.cyan(' ./dist/')
 	);
@@ -66,7 +66,7 @@ function build_docs() {
 		.pipe(dest(paths.docs.dest));
 }
 function build_server() {
-	return src(paths.server.src)
+	return src(paths.server.src, { dot: true })
 		.pipe(dest(paths.server.dest));
 }
 function build_imgContent() {
