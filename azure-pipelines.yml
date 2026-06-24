@@ -5,7 +5,7 @@ pr:
 
 variables:
   - name: nodeVersion
-    value: "25.x"
+    value: '25.x'
   
   - name: artifactName
     value: UnfinishedTruthBuild
@@ -27,8 +27,9 @@ stages:
 
           - task: UseNode@1
             displayName: Use Node.js $(nodeVersion)
-            version: $(nodeVersion)
-            checkLatest:  false
+            inputs:
+              version: $(variables.nodeVersion)
+              checkLatest: false
 
           - script: npm ci
             displayName: Install Module Dependencies
