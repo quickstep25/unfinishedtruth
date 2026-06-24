@@ -13,7 +13,7 @@ variables:
   - group: varGroup_DreamHost
 
 pool:
-  vmImage: ununtu-latest
+  vmImage: ubuntu-latest
 
 stages:
   - stage: BUILD
