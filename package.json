@@ -1,30 +1,37 @@
 {
   "name": "site-unfinishedtruth",
-  "version":"1.0.0",
+  "version": "1.0.0",
   "description": "",
-  "homepage": "https://www.unfinishedtruth.site/",
-  "license" : "UNLICENSED",
+  "homepage": "https://unfinishedtruth.site/",
+  "license": "LICENSED",
   "private": true,
   "targets": {
     "default": {
-      "distDir": "www/dist"
+      "distDir": ""
     }
   },
-
   "scripts": {
-    "dev": "parcel www/src/scripts/pug/index.pug --dist-dir www/dist",
-    "build": "parcel build www/src/scripts/pug/index.pug --dist-dir www/dist"
-  },
-  "devDependencies": {
-    "@parcel/transformer-pug": "^2.15.4",
-    "@parcel/transformer-sass": "2.15.4",
-    "@types/bun": "latest",
-    "parcel": "^2.15.4",
-    "sass": "^1.91.0"
+    "clean": "gulp clean",
+    "watch": "gulp watch",
+    "dev": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp"
   },
   "author": {
     "email": "admin@unfinishedtruth.site",
     "name": "Doug Hill",
     "url": "https://www.github.com/quickstep25"
+  },
+  "packageManager": "yarn@4.17.0",
+  "devDependencies": {
+    "chalk": "^5.6.2",
+    "chalk-animation": "^2.0.3",
+    "cross-env": "^10.1.0",
+    "del": "^8.0.1",
+    "fancy-log": "^2.0.0",
+    "gulp": "^5.0.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.101.0",
+    "vinyl-fs": "^4.0.2"
   }
 }
