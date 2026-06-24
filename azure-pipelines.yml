@@ -1,0 +1,49 @@
+pr:
+  branches:
+    include:
+    - master
+
+variables:
+  - name: nodeVersion
+    value: "25.x"
+  
+  - name: artifactName
+    value: UnfinishedTruthBuild
+
+  - group: varGroup_DreamHost
+
+pool:
+  vmImage: ununtu-latest
+
+stages:
+  - stage: BUILD
+    displayName: STAGE - BUILD
+    jobs:
+      - job: BUILDSITE
+        displayName: Transpile and Build Site Files
+        steps:
+          - checkout: self
+            clean: true
+
+          - task: UseNode@1
+            displayName: Use Node.js $(nodeVersion)
+            version: $(nodeVersion)
+            checkLatest:  false
+
+          - script: npm ci
+            displayName: Install Module Dependencies
+
+          - script: npm run build
+            displayName: Build the /dist Directory
+            # TODO: SAVE BUILD AS ARTIFACT
+        
+      - job: PUBLISHARTIFACT
+        displayName: Save Build as Artifact
+        steps:
+          - publish: $(Build.SourcesDirectory)/dist
+            displayName: Publish Build Artifact
+            artifact: $(artifactName)
+
+          - bash:
+            displayName: Print Build Sources Directory
+              echo $Build.SourcesDirectory
