@@ -1,0 +1,92 @@
+trigger: none
+
+pr:
+  branches:
+    include:
+    - master
+
+variables:
+  - name: nodeVersion
+    value: '25.x'
+
+  - name: artifactName
+    value: 'UnfinishedTruthBuild'
+
+  - group: varGroup_DreamHost
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: 'BUILD'
+    displayName: 'STAGE - BUILD'
+    jobs:
+      - job: 'BUILDSITE'
+        displayName: 'Transpile and Build Site Files'
+        steps:
+          - checkout: 'self'
+            clean: true
+
+          - task: UseNode@1
+            displayName: 'Use Node.js $(nodeVersion)'
+            inputs:
+              version: $(nodeVersion)
+              checkLatest: false
+
+          - script: npm ci
+            displayName: 'Install Module Dependencies'
+
+          - script: npm run build
+            displayName: 'Build the /dist Directory'
+
+          - publish: $(Build.SourcesDirectory)/dist
+            displayName: 'Publish Build Artifact'
+            artifact: $(artifactName)
+
+          - bash: echo "$(Build.SourcesDirectory)"
+            displayName: 'Print Build Sources Directory'
+
+  # TODO: INSERT TESTING
+  # - stage: TEST
+  #   displayName: STAGE - TEST
+  #   dependsOn: BUILD
+  #   jobs:
+  #     - job: TESTOUTPUT
+  #       displayName: TEST BUILD FILES
+  #       steps:
+
+  #         - task:
+  #           displayName: TEST FILE 1
+
+
+
+  # - stage: DEPLOYMENT
+  #   displayName: STAGE - DEPLOYMENT
+  #   dependsOn: TEST
+
+  #   jobs:
+  #     - deployment:
+  #       displayName:
+  #       environment: Production
+  #       strategy:
+  #         runOnce:
+  #           preDeploy:
+  #             steps:
+  #               - task:
+  #                 displayName: FTP
+
+  #           deploy:
+  #             steps:
+  #               - task:
+  #                 displayName:
+
+  #             on:
+  #               failure:
+  #                 steps:
+  #                   - task:
+  #                     displayName:
+
+  #               success:
+  #                 steps:
+  #                   - task:
+  #                     displayName:

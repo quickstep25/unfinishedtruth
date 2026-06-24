@@ -4,6 +4,7 @@
 # Serve pages as UTF-8 unless files say otherwise
 AddDefaultCharset UTF-8
 
+
 # Pick the default file to serve in a directory
 <IfModule mod_dir.c>
   # Keeping DirectorySlash ON avoids duplicate-URL/SEO issues
@@ -24,7 +25,7 @@ AddDefaultCharset UTF-8
 # ================================
 # Symlinks (use the safer option)
 # ================================
-<IfModule mod_negotiation.c></IfModule>
+# <IfModule mod_negotiation.c></IfModule>
 # Use only one of these; SymLinksIfOwnerMatch is safer on shared hosts
 <IfModule mod_alias.c>
   Options +SymLinksIfOwnerMatch
@@ -93,11 +94,7 @@ FileETag None
   # JS & CSS: long cache with immutable (bust via file versioning)
   ExpiresByType text/css                       "access plus 1 year"
   ExpiresByType application/javascript         "access plus 1 year"
-  <IfModule mod_headers.c>
-    <FilesMatch "\.(css|js)$">
-      Header set Cache-Control "public, max-age=31536000, immutable"
-    </FilesMatch>
-  </IfModule>
+
 
   # Images: cache for a month (tune to taste)
   ExpiresByType image/gif                      "access plus 1 month"
@@ -119,6 +116,11 @@ FileETag None
 
 # Ensure HTML/API are not cached by proxies if you want them fresh
 <IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_headers.c>
   <FilesMatch "\.(html?)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
@@ -132,10 +134,12 @@ FileETag None
 # ================================
 # Favicon convenience (optional)
 # ================================
-# <IfModule mod_rewrite.c>
+<IfModule mod_rewrite.c>
 #   RewriteEngine On
 #   RewriteRule ^favicon\.ico$ /images/favicons/favicon.ico [L,R=302]
-# </IfModule>
+  RewriteCond %{HTTP_HOST} ^www\.unfinishedtruth\.site [NC]
+  RewriteRule ^(.*)$ https://unfinishedtruth.site/$1 [L,R=301]
+</IfModule>
 
 # ================================
 # MIME types (only where hosts are missing them)
